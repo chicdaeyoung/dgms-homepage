@@ -364,3 +364,60 @@ document.querySelectorAll('.nav-cta, .btn-primary, .fs-btn').forEach(function (b
   });
 });
 
+
+// ── 폰 목업 슬라이더 ──
+document.addEventListener('DOMContentLoaded', function () {
+  const phoneSlider = document.getElementById('phoneSlider');
+  const phoneDots = document.querySelectorAll('.phone-dot');
+  if (!phoneSlider) return;
+
+  let currentSlide = 0;
+  const totalSlides = 5;
+
+  function moveToSlide(index) {
+    currentSlide = index;
+    phoneSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    phoneDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  // 자동 슬라이드 3초마다
+  let autoSlide = setInterval(() => {
+    let next = (currentSlide + 1) % totalSlides;
+    moveToSlide(next);
+  }, 3000);
+
+  // 버튼 클릭
+  document.getElementById('phonePrev').addEventListener('click', () => {
+    clearInterval(autoSlide);
+    let prev = (currentSlide - 1 + totalSlides) % totalSlides;
+    moveToSlide(prev);
+    autoSlide = setInterval(() => {
+      let next = (currentSlide + 1) % totalSlides;
+      moveToSlide(next);
+    }, 3000);
+  });
+
+  document.getElementById('phoneNext').addEventListener('click', () => {
+    clearInterval(autoSlide);
+    let next = (currentSlide + 1) % totalSlides;
+    moveToSlide(next);
+    autoSlide = setInterval(() => {
+      let next2 = (currentSlide + 1) % totalSlides;
+      moveToSlide(next2);
+    }, 3000);
+  });
+
+  // 점 클릭
+  phoneDots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      clearInterval(autoSlide);
+      moveToSlide(i);
+      autoSlide = setInterval(() => {
+        let next = (currentSlide + 1) % totalSlides;
+        moveToSlide(next);
+      }, 3000);
+    });
+  });
+});

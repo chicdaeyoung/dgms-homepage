@@ -2334,3 +2334,14 @@
   .food-wrap     { display: none !important; }
   .hero-image    { display: none !important; }
 }
+
+/* ── 폰 목업 크기 확대 ── */
+.phone-shell {
+  width: 280px !important;
+}
+.phone-screen {
+  font-size: 14px !important;
+}
+.phone-slide-img {
+  height: 420px !important;
+}
