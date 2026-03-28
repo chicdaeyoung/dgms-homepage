@@ -879,7 +879,39 @@
   .location-section { background: var(--black); }
   .location-section .section-title { color: #fff; }
   .location-section .section-sub { color: rgba(255,255,255,0.5); }
-  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .location-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .loc-tab {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .loc-tab.active {
+    background: var(--red);
+    color: #fff;
+    border-color: var(--red);
+  }
+  .loc-tab:hover {
+    background: rgba(200,24,26,0.3);
+    color: #fff;
+  }
+  .loc-selected-addr {
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
   .location-info { color: #fff; }
   .location-item {
     display: flex;
@@ -2240,6 +2272,8 @@
 
   /* ── Kakao Map ── */
   #kakaoMap { height: 240px; }
+  .location-tabs { gap: 8px; }
+  .loc-tab { padding: 8px 14px; font-size: 13px; }
 
   /* ── Footer ── */
   footer {
