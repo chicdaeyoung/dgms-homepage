@@ -559,3 +559,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
   costObserver.observe(costCards[0].closest('section') || costCards[0].parentElement);
 });
+
+// ── 수익 모델 카드 순차 등장 애니메이션 ──
+document.addEventListener('DOMContentLoaded', function () {
+  const revenueCards = document.querySelectorAll('.revenue-card');
+  if (!revenueCards.length) return;
+
+  revenueCards.forEach((card) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  });
+
+  const revenueObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        revenueCards.forEach((card, i) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, i * 200);
+        });
+        revenueObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revenueObserver.observe(revenueCards[0].closest('section') || revenueCards[0].parentElement);
+});
+
+// ── 직영점 매출 카드 순차 등장 애니메이션 ──
+document.addEventListener('DOMContentLoaded', function () {
+  const salesCards = document.querySelectorAll('.sales-card-item');
+  if (!salesCards.length) return;
+
+  salesCards.forEach((card) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  });
+
+  const salesObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        salesCards.forEach((card, i) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, i * 200);
+        });
+        salesObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.1 });
+
+  salesObserver.observe(salesCards[0].closest('section') || salesCards[0].parentElement);
+});

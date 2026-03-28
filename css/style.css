@@ -2383,3 +2383,19 @@
   transform: translateY(-8px) !important;
   box-shadow: 0 16px 40px rgba(200,24,26,0.2) !important;
 }
+
+/* ── 수익/매출 카드 호버 효과 ── */
+.revenue-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.revenue-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 16px 40px rgba(200,24,26,0.2) !important;
+}
+.sales-card-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.sales-card-item:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15) !important;
+}
