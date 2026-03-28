@@ -2399,3 +2399,65 @@
   transform: translateY(-8px) !important;
   box-shadow: 0 16px 40px rgba(0,0,0,0.15) !important;
 }
+
+/* ── 브랜드 스토리 그리드 ── */
+.brand-story-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 0;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.brand-story-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 36px 28px;
+  border: 1px solid #eee;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.brand-story-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+.brand-story-num {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--red);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.brand-story-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+.brand-story-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  color: var(--black);
+}
+.brand-story-desc {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.8;
+}
+.brand-story-arrow {
+  font-size: 28px;
+  color: var(--red);
+  padding: 0 16px;
+  font-weight: 900;
+}
+@media (max-width: 768px) {
+  .brand-story-grid {
+    grid-template-columns: 1fr;
+  }
+  .brand-story-arrow {
+    transform: rotate(90deg);
+    text-align: center;
+    padding: 8px 0;
+  }
+}
