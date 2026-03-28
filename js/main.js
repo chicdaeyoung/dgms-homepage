@@ -326,3 +326,41 @@ function fixMobileStats() {
 
 fixMobileStats();
 window.addEventListener('resize', fixMobileStats);
+
+// ── 팝업 상담 신청 ──
+const popupOverlay = document.getElementById('popupOverlay');
+
+function openPopup() {
+  popupOverlay.classList.add('active');
+}
+function closePopup() {
+  popupOverlay.classList.remove('active');
+}
+
+document.getElementById('stickyOpenBtn').addEventListener('click', openPopup);
+document.getElementById('popupClose').addEventListener('click', closePopup);
+popupOverlay.addEventListener('click', function (e) {
+  if (e.target === popupOverlay) closePopup();
+});
+
+document.getElementById('popupSubmit').addEventListener('click', function () {
+  const name  = document.getElementById('popupName').value.trim();
+  const phone = document.getElementById('popupPhone').value.trim();
+  if (!name || !phone) {
+    alert('이름과 연락처를 입력해주세요.');
+    return;
+  }
+  closePopup();
+  alert('상담 신청이 완료되었습니다. 24시간 내 연락드리겠습니다.');
+  document.getElementById('popupName').value  = '';
+  document.getElementById('popupPhone').value = '';
+});
+
+// ── 상담 버튼 팝업 연결 (nav, 히어로, fullscreen 등) ──
+document.querySelectorAll('.nav-cta, .btn-primary, .fs-btn').forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    openPopup();
+  });
+});
+
