@@ -421,3 +421,33 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// ── 리뷰 인용구 롤링 ──
+document.addEventListener('DOMContentLoaded', function () {
+  const quotes = document.querySelectorAll('.rps-quote');
+  if (!quotes.length) return;
+  let currentQuote = 0;
+
+  quotes.forEach((q, i) => {
+    q.style.display = i === 0 ? 'block' : 'none';
+    q.style.transition = 'opacity 0.5s ease';
+    q.style.opacity = i === 0 ? '1' : '0';
+  });
+
+  function moveToQuote(index) {
+    quotes[currentQuote].style.opacity = '0';
+    setTimeout(() => {
+      quotes[currentQuote].style.display = 'none';
+      currentQuote = index;
+      quotes[currentQuote].style.display = 'block';
+      setTimeout(() => {
+        quotes[currentQuote].style.opacity = '1';
+      }, 50);
+    }, 400);
+  }
+
+  setInterval(() => {
+    let next = (currentQuote + 1) % quotes.length;
+    moveToQuote(next);
+  }, 3000);
+});
