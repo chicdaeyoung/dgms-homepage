@@ -2337,11 +2337,33 @@
 
 /* ── 폰 목업 크기 확대 ── */
 .phone-shell {
-  width: 280px !important;
+  width: 320px !important;
+  height: 640px !important;
 }
 .phone-screen {
-  font-size: 14px !important;
+  border-radius: 40px !important;
 }
 .phone-slide-img {
-  height: 420px !important;
+  height: 500px !important;
+}
+.phone-slider-wrap {
+  height: 500px !important;
+}
+.review-platform-side {
+  max-height: 500px !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin;
+  scrollbar-color: var(--red) rgba(255,255,255,0.1);
+  padding-right: 8px;
+}
+.review-platform-side::-webkit-scrollbar {
+  width: 4px;
+}
+.review-platform-side::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+}
+.review-platform-side::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 4px;
 }
