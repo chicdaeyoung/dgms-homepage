@@ -454,25 +454,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ── 리뷰 평점 바 애니메이션 ──
 document.addEventListener('DOMContentLoaded', function () {
-  const ratingBars = document.querySelectorAll('.rsl-bar');
-  if (!ratingBars.length) return;
+  const rslBars = document.querySelectorAll('.rsl-bar');
+  if (!rslBars.length) return;
 
-  const barObserver = new IntersectionObserver((entries) => {
+  const rslObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        ratingBars.forEach((bar, i) => {
+        rslBars.forEach((bar, i) => {
           const targetWidth = bar.dataset.width;
           setTimeout(() => {
-            bar.style.transition = 'width 1s ease';
             bar.style.width = targetWidth;
-          }, i * 150);
+          }, i * 200);
         });
-        barObserver.disconnect();
+        rslObserver.disconnect();
       }
     });
   }, { threshold: 0.3 });
 
-  barObserver.observe(ratingBars[0].closest('section') || ratingBars[0].parentElement);
+  rslObserver.observe(document.querySelector('.review-stat-list'));
 });
 
 // ── 누적 리뷰 카운트업 ──
