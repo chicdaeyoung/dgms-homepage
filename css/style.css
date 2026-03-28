@@ -186,6 +186,8 @@
     flex-shrink: 0;
   }
   .nav-cta:hover { background: var(--red-dark); }
+  /* 햄버거: 데스크탑에서 숨김 */
+  .nav-hamburger { display: none; }
 
   /* nav 높이만큼 hero 첫 섹션 밀기 */
   .hero { padding-top: calc(80px + 64px); }
@@ -1511,6 +1513,8 @@
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 700;
   }
+  /* 텍스트형 숫자 (안정화 등) 크기 조정 */
+  .stat-num-text { font-size: 22px; }
   .stat-label-v2 {
     font-size: 14px;
     color: rgba(255,255,255,0.45);
@@ -1826,3 +1830,313 @@
     50%      { opacity:0.8; transform:scaleX(1.25); }
   }
 
+
+
+/* ════════════════════════════════════════════════
+   TABLET: max-width 1024px
+════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  /* 히어로 패딩 축소 */
+  .hero {
+    padding: 80px 30px 0 30px;
+    min-height: 560px;
+  }
+
+  /* 메뉴 그리드 2컬럼 */
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 수익/비용 카드 2컬럼 */
+  .revenue-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cost-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* stats-grid-v2 2컬럼 */
+  .stats-grid-v2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-item-v2 {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-item-v2:nth-child(odd) {
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* 판매 카드 그리드 2컬럼 */
+  .sales-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 섹션 패딩 */
+  section { padding: 60px 40px; }
+  .auto-section,
+  .sales-section,
+  .contact-section,
+  .final-cta-section { padding: 60px 40px; }
+}
+
+
+/* ════════════════════════════════════════════════
+   MOBILE: max-width 768px
+════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Nav ── */
+  .main-nav {
+    padding: 0 20px;
+    flex-wrap: wrap;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0; right: 0;
+    background: #050000;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 12px 0;
+    gap: 0;
+    z-index: 999;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links li {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-links a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+  .nav-cta { display: none; }
+  .nav-hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 100px 20px 60px;
+    min-height: auto;
+  }
+  .hero-text { text-align: center; }
+  .hero-cta-group { justify-content: center; }
+  .hero-image { display: none; }
+  .hero-title { font-size: 32px; }
+  .hero-sub   { font-size: 13px; }
+  .hero-desc  { font-size: 15px; }
+  .btn-primary,
+  .btn-secondary { font-size: 16px; padding: 13px 22px; }
+  .hero-lantern { display: none; }
+
+  /* ── 섹션 공통 ── */
+  section { padding: 40px 20px; }
+  .auto-section,
+  .sales-section,
+  .contact-section,
+  .quote-section,
+  .final-cta-section { padding: 40px 20px; }
+  .section-title { font-size: 28px; }
+  .section-sub   { font-size: 15px; margin-bottom: 32px; }
+
+  /* ── Stats (기존) ── */
+  .stats-section { padding: 30px 20px; }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .stat-item:nth-child(odd)  { border-right: 1px solid rgba(255,255,255,0.1); }
+  .stat-item:last-child      { border-bottom: none; }
+
+  /* ── Stats v2 ── */
+  .stats-section-v2 {
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+  .stats-grid-v2 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0 !important;
+  }
+  .stat-item-v2 {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 16px 10px !important;
+    min-width: 0 !important;
+    width: auto !important;
+  }
+  .stat-item-v2:nth-child(odd) {
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-num-v2   { font-size: 32px !important; }
+  .stat-num-text { font-size: 18px !important; }
+  .stat-icon-v2  { font-size: 20px !important; }
+  .stat-label-v2 { font-size: 11px !important; }
+
+  /* ── 풀스크린 섹션 공통 (시그니처 + 창업자 혜택) ── */
+  .fullscreen-impact { min-height: auto; }
+  .fullscreen-content { padding: 60px 20px; }
+  .fs-title { font-size: 30px; margin-bottom: 16px; }
+  .fs-desc  { font-size: 14px; margin-bottom: 28px; }
+  .fs-tag   { font-size: 12px; letter-spacing: 2px; padding: 5px 14px; margin-bottom: 20px; }
+  .fs-stats-row {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .fs-stat {
+    flex: 1 1 45%;
+    padding: 14px 10px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .fs-stat:nth-child(odd)  { border-right: 1px solid rgba(255,255,255,0.1); }
+  .fs-stat:nth-last-child(-n+2) { border-bottom: none; }
+  .fs-stat-num   { font-size: 22px; }
+  .fs-stat-label { font-size: 12px; }
+  .fs-btn        { font-size: 15px; padding: 14px 28px; width: 100%; max-width: 320px; }
+  .fs-btn-ghost  { font-size: 15px; padding: 14px 28px; width: 100%; max-width: 320px; margin-left: 0; margin-top: 10px; }
+
+  /* ── 리뷰 섹션 ── */
+  .review-section { padding: 40px 20px; overflow: hidden; }
+  .review-layout  {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .phone-mockup-wrap { display: none; }
+  .review-stats-side  { width: 100%; }
+  .review-platform-side { width: 100%; }
+  .rsb-num { font-size: 40px; }
+  .rps-item { padding: 12px; }
+  .rps-name { font-size: 15px; }
+
+  /* ── 브랜드 ── */
+  .brand-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* ── 비교 테이블 ── */
+  .compare-section { padding: 40px 12px; }
+  .compare-table { font-size: 14px; }
+  .compare-table thead th { padding: 14px 8px; font-size: 15px; }
+  .compare-table tbody td { padding: 14px 8px; font-size: 14px; }
+
+  /* ── 메뉴 ── */
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* ── 수익 모델 ── */
+  .revenue-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* ── 창업 비용 ── */
+  .cost-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* ── 직영점 매출 카드 ── */
+  .sales-card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  /* 직영점 차트 레이아웃 */
+  .sales-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Trust ── */
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  /* ── 프로세스 스텝 ── */
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .steps-grid::before { display: none; }
+
+  /* ── 후기 ── */
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* ── 위치 ── */
+  .location-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* ── 상담 섹션 ── */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .form-row-double {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .form-row-double .form-group {
+    margin-bottom: 18px;
+  }
+  .contact-title { font-size: 26px; }
+  .contact-form-wrap { padding: 24px 18px; }
+
+  /* ── Final CTA ── */
+  .final-cta-title { font-size: 26px; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .cta-btn-white,
+  .cta-btn-outline { width: 100%; max-width: 320px; padding: 16px 20px; }
+  .cta-phone { font-size: 26px; }
+
+  /* ── Sticky CTA ── */
+  .sticky-cta { bottom: 16px; right: 12px; gap: 8px; }
+  .sticky-btn { font-size: 15px; padding: 12px 18px; }
+
+  /* ── Footer ── */
+  footer {
+    padding: 30px 20px;
+  }
+  .site-footer { padding: 30px 20px; }
+  .footer-info { font-size: 12px; gap: 6px 16px; }
+
+  /* ── 자동화 섹션 ── */
+  .auto-steps {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .auto-step-arrow {
+    transform: rotate(90deg);
+    font-size: 20px;
+  }
+  .auto-step-card { width: 100%; max-width: 360px; }
+
+  /* ── 섹션 코너 장식 숨김 (좁은 화면) ── */
+  .section-wrap::before,
+  .section-wrap::after { display: none; }
+}

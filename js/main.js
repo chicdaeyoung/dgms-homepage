@@ -1,5 +1,27 @@
 // main.js
 
+// ── 햄버거 메뉴 토글 ──
+document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks  = document.querySelector('.nav-links');
+  if (!hamburger || !navLinks) return;
+
+  hamburger.addEventListener('click', function () {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.textContent = isOpen ? '✕' : '☰';
+    hamburger.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+  });
+
+  // 메뉴 항목 클릭 시 자동 닫힘
+  navLinks.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navLinks.classList.remove('open');
+      hamburger.textContent = '☰';
+      hamburger.setAttribute('aria-label', '메뉴 열기');
+    });
+  });
+});
+
 // ── NAV 스크롤 효과 ──
 document.addEventListener('DOMContentLoaded', function () {
   const nav = document.getElementById('mainNav');
