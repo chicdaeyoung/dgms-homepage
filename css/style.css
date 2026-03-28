@@ -1474,9 +1474,8 @@
     padding: 0;
   }
   .stats-grid-v2 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+    display: flex;
+    flex-wrap: wrap;
   }
   .stat-item-v2 {
     padding: 36px 24px;
@@ -1855,18 +1854,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* stats-grid-v2 2컬럼 */
-  .stats-grid-v2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .stat-item-v2 {
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .stat-item-v2:nth-child(odd) {
-    border-right: 1px solid rgba(255,255,255,0.08);
-  }
-
   /* 판매 카드 그리드 2컬럼 */
   .sales-card-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1970,20 +1957,18 @@
     overflow: hidden !important;
     width: 100% !important;
   }
-  .stats-grid-v2 {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0 !important;
-  }
   .stat-item-v2 {
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
     padding: 16px 10px !important;
     min-width: 0 !important;
     width: auto !important;
   }
   .stat-item-v2:nth-child(odd) {
-    border-right: 1px solid rgba(255,255,255,0.08);
+    border-right: 1px solid rgba(255,255,255,0.08) !important;
+  }
+  .stat-item-v2:nth-child(2n) {
+    border-right: none !important;
   }
   .stat-num-v2   { font-size: 32px !important; }
   .stat-num-text { font-size: 18px !important; }
@@ -2140,3 +2125,5 @@
   .section-wrap::before,
   .section-wrap::after { display: none; }
 }
+
+

@@ -310,3 +310,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// ── 모바일 stats 그리드 강제 적용 ──
+function fixMobileStats() {
+  const grid = document.querySelector('.stats-grid-v2');
+  if (!grid) return;
+
+  if (window.innerWidth <= 768) {
+    grid.style.display = 'grid';
+    grid.style.gridTemplateColumns = '1fr 1fr';
+  } else {
+    grid.style.gridTemplateColumns = '';
+  }
+}
+
+fixMobileStats();
+window.addEventListener('resize', fixMobileStats);
