@@ -503,3 +503,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
   countObserver.observe(reviewCount);
 });
+
+// ── 메뉴 카드 순차 등장 애니메이션 ──
+document.addEventListener('DOMContentLoaded', function () {
+  const menuCards = document.querySelectorAll('.menu-card');
+  if (!menuCards.length) return;
+
+  menuCards.forEach((card) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  });
+
+  const menuObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        menuCards.forEach((card, i) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, i * 150);
+        });
+        menuObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.1 });
+
+  menuObserver.observe(menuCards[0].closest('section') || menuCards[0].parentElement);
+});
+
+// ── 창업 비용 카드 순차 등장 애니메이션 ──
+document.addEventListener('DOMContentLoaded', function () {
+  const costCards = document.querySelectorAll('.cost-card');
+  if (!costCards.length) return;
+
+  costCards.forEach((card) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  });
+
+  const costObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        costCards.forEach((card, i) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, i * 200);
+        });
+        costObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.1 });
+
+  costObserver.observe(costCards[0].closest('section') || costCards[0].parentElement);
+});

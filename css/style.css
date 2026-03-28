@@ -2367,3 +2367,19 @@
   background: var(--red);
   border-radius: 4px;
 }
+
+/* ── 메뉴/비용 카드 호버 효과 ── */
+.menu-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.menu-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3) !important;
+}
+.cost-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.cost-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 16px 40px rgba(200,24,26,0.2) !important;
+}
