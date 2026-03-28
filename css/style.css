@@ -200,6 +200,7 @@
     background: #111;
     padding: 48px 60px;
     border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center !important;
   }
   .footer-inner {
     max-width: 960px;
@@ -211,6 +212,7 @@
     font-weight: 700;
     color: rgba(255,255,255,0.6);
     margin-bottom: 16px;
+    text-align: center !important;
   }
   .footer-info {
     display: flex;
@@ -220,6 +222,8 @@
     color: rgba(255,255,255,0.4);
     line-height: 1.8;
     margin-bottom: 20px;
+    text-align: center !important;
+    justify-content: center;
   }
   .footer-copy {
     font-size: 13px;
