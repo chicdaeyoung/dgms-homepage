@@ -451,3 +451,56 @@ document.addEventListener('DOMContentLoaded', function () {
     moveToQuote(next);
   }, 3000);
 });
+
+// ── 리뷰 평점 바 애니메이션 ──
+document.addEventListener('DOMContentLoaded', function () {
+  const ratingBars = document.querySelectorAll('.rsl-bar');
+  if (!ratingBars.length) return;
+
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        ratingBars.forEach((bar, i) => {
+          const targetWidth = bar.dataset.width;
+          setTimeout(() => {
+            bar.style.transition = 'width 1s ease';
+            bar.style.width = targetWidth;
+          }, i * 150);
+        });
+        barObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  barObserver.observe(ratingBars[0].closest('section') || ratingBars[0].parentElement);
+});
+
+// ── 누적 리뷰 카운트업 ──
+document.addEventListener('DOMContentLoaded', function () {
+  const reviewCount = document.querySelector('.rcb-num');
+  if (!reviewCount) return;
+
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        let count = 0;
+        const target = 9999;
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        const timer = setInterval(() => {
+          count += increment;
+          if (count >= target) {
+            count = target;
+            clearInterval(timer);
+            reviewCount.textContent = '9,999+';
+          } else {
+            reviewCount.textContent = Math.floor(count).toLocaleString();
+          }
+        }, 16);
+        countObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  countObserver.observe(reviewCount);
+});
