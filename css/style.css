@@ -2468,3 +2468,26 @@
     padding: 8px 0;
   }
 }
+
+/* ── 직영점 매출 featured 카드 ── */
+.sales-card-item.featured {
+  border: 2px solid var(--red) !important;
+  background: #FFF8F8 !important;
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(200,24,26,0.15);
+  position: relative;
+}
+.sales-card-item.featured::before {
+  content: '🏆 최고 매출';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
