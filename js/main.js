@@ -343,17 +343,40 @@ popupOverlay.addEventListener('click', function (e) {
   if (e.target === popupOverlay) closePopup();
 });
 
-document.getElementById('popupSubmit').addEventListener('click', function () {
-  const name  = document.getElementById('popupName').value.trim();
+document.getElementById('popupSubmit').addEventListener('click', function() {
+  const name = document.getElementById('popupName').value.trim();
   const phone = document.getElementById('popupPhone').value.trim();
+  const region = document.getElementById('popupRegion').value.trim();
+
   if (!name || !phone) {
     alert('이름과 연락처를 입력해주세요.');
     return;
   }
-  closePopup();
-  alert('상담 신청이 완료되었습니다. 24시간 내 연락드리겠습니다.');
-  document.getElementById('popupName').value  = '';
-  document.getElementById('popupPhone').value = '';
+
+  const submitBtn = document.getElementById('popupSubmit');
+  submitBtn.textContent = '신청 중...';
+  submitBtn.disabled = true;
+
+  fetch('https://script.google.com/macros/s/AKfycbwcChyjfMItn4RQEvkBhpRAsp6fXSqZXI1r6WoHH9x1YYNJQ_URBmSztJYBX7ToGgDp/exec', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, phone, region })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('popupOverlay').classList.remove('active');
+    alert('상담 신청이 완료되었습니다. 24시간 내 연락드리겠습니다.');
+    document.getElementById('popupName').value = '';
+    document.getElementById('popupPhone').value = '';
+    document.getElementById('popupRegion').value = '';
+  })
+  .catch(err => {
+    alert('신청 중 오류가 발생했습니다. 다시 시도해주세요.');
+  })
+  .finally(() => {
+    submitBtn.textContent = '상담 신청하기';
+    submitBtn.disabled = false;
+  });
 });
 
 // ── 상담 버튼 팝업 연결 (nav, 히어로, fullscreen 등) ──
