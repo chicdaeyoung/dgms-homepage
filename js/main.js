@@ -357,13 +357,13 @@ document.getElementById('popupSubmit').addEventListener('click', function() {
   submitBtn.textContent = '신청 중...';
   submitBtn.disabled = true;
 
-  fetch('https://script.google.com/macros/s/AKfycbyYsxOggLjE7ObJeOXC59xIhy-WJ4eB3Zm7MFiwhxYxmJBFk17NhuWGK7QmD7sr_Crs/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbxT2OENUD1MU978JYfowZmOF-RotN-VKr9fy6ljWNQrUzuHu-RzzuRmS2mV5rBRaOVU/exec', {
     method: 'POST',
+    mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, phone, region })
   })
-  .then(res => res.json())
-  .then(data => {
+  .then(() => {
     document.getElementById('popupOverlay').classList.remove('active');
     alert('상담 신청이 완료되었습니다. 24시간 내 연락드리겠습니다.');
     document.getElementById('popupName').value = '';
