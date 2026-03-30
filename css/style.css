@@ -2534,6 +2534,56 @@
   .revenue-highlight-inner { flex-direction: column; gap: 24px; }
   .rh-divider { width: 60px; height: 1px; }
   .rh-num { font-size: 32px; }
+
+  /* 기본 폰트 크기 상향 */
+  body { font-size: 17px; }
+
+  /* 히어로 */
+  .hero-title { font-size: 30px !important; line-height: 1.4 !important; }
+  .hero-sub { font-size: 14px !important; }
+  .hero-desc { font-size: 17px !important; line-height: 1.9 !important; word-break: keep-all !important; }
+
+  /* 섹션 제목/부제 */
+  .section-title { font-size: 26px !important; word-break: keep-all !important; }
+  .section-sub { font-size: 16px !important; word-break: keep-all !important; line-height: 1.8 !important; }
+
+  /* 브랜드 스토리 */
+  .brand-story-title { font-size: 18px !important; }
+  .brand-story-desc { font-size: 16px !important; line-height: 1.9 !important; word-break: keep-all !important; }
+
+  /* 비교표 */
+  .auto-table tbody td { font-size: 15px !important; }
+
+  /* FAQ */
+  .faq-q { font-size: 16px !important; word-break: keep-all !important; }
+  .faq-a { font-size: 15px !important; line-height: 1.9 !important; word-break: keep-all !important; }
+
+  /* 수익 강조 배너 */
+  .rh-num { font-size: 28px !important; }
+  .rh-label { font-size: 13px !important; }
+
+  /* 카드 설명 */
+  .menu-desc { font-size: 14px !important; word-break: keep-all !important; }
+  .cost-item { font-size: 15px !important; }
+  .step-desc { font-size: 15px !important; word-break: keep-all !important; }
+  .trust-desc { font-size: 14px !important; word-break: keep-all !important; }
+  .revenue-sub { font-size: 15px !important; }
+
+  /* 초기 창업자 혜택 */
+  .early-benefit-text strong { font-size: 18px !important; }
+  .early-benefit-text span { font-size: 15px !important; word-break: keep-all !important; }
+
+  /* 푸터 */
+  .footer-info { font-size: 13px !important; line-height: 2 !important; }
+
+  /* 전체 word-break 적용 */
+  p, span, div, h1, h2, h3, h4 {
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* 섹션 패딩 */
+  section { padding: 50px 24px !important; }
 }
 
 /* ── 폰트 크기 전체 조정 ── */
