@@ -2573,55 +2573,6 @@
   .early-benefit-text strong { font-size: 18px !important; }
   .early-benefit-text span { font-size: 15px !important; word-break: keep-all !important; }
 
-  /* 설명 문구 전체 최소 16px 보장 */
-  p { font-size: 16px !important; line-height: 2 !important; }
-  span { font-size: 16px !important; }
-
-  /* 섹션 부제 */
-  .section-sub { font-size: 17px !important; }
-
-  /* 브랜드 스토리 */
-  .brand-story-desc { font-size: 16px !important; line-height: 2 !important; }
-
-  /* FAQ */
-  .faq-q { font-size: 17px !important; }
-  .faq-a { font-size: 16px !important; line-height: 2 !important; }
-
-  /* 히어로 설명 */
-  .hero-desc { font-size: 17px !important; line-height: 2 !important; }
-
-  /* 카드 설명 */
-  .menu-desc { font-size: 16px !important; }
-  .cost-item-label { font-size: 16px !important; }
-  .cost-item-value { font-size: 16px !important; }
-  .step-desc { font-size: 16px !important; line-height: 2 !important; }
-  .trust-desc { font-size: 16px !important; line-height: 2 !important; }
-  .revenue-type { font-size: 16px !important; }
-  .rev-row-label { font-size: 16px !important; }
-  .rev-row-value { font-size: 16px !important; }
-
-  /* 비교표 */
-  .auto-table tbody td { font-size: 16px !important; }
-  .auto-table thead th { font-size: 16px !important; }
-
-  /* 혜택 배너 */
-  .early-benefit-text span { font-size: 16px !important; }
-
-  /* 리뷰 */
-  .rps-quote { font-size: 16px !important; line-height: 2 !important; }
-  .rps-desc { font-size: 16px !important; }
-  .rps-name { font-size: 17px !important; }
-
-  /* 매출 카드 */
-  .sales-store { font-size: 17px !important; }
-  .sales-card-label { font-size: 16px !important; }
-
-  /* 푸터 */
-  .footer-info { font-size: 14px !important; line-height: 2.2 !important; }
-
-  /* loc 탭 */
-  .loc-tab { font-size: 15px !important; padding: 10px 16px !important; }
-
   /* 전체 word-break 적용 */
   p, span, div, h1, h2, h3, h4 {
     word-break: keep-all !important;
