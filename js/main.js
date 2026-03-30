@@ -357,7 +357,7 @@ document.getElementById('popupSubmit').addEventListener('click', function() {
   submitBtn.textContent = '신청 중...';
   submitBtn.disabled = true;
 
-  fetch('https://script.google.com/macros/s/AKfycbwcChyjfMItn4RQEvkBhpRAsp6fXSqZXI1r6WoHH9x1YYNJQ_URBmSztJYBX7ToGgDp/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbyYsxOggLjE7ObJeOXC59xIhy-WJ4eB3Zm7MFiwhxYxmJBFk17NhuWGK7QmD7sr_Crs/exec', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, phone, region })
