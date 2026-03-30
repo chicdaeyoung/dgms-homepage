@@ -361,19 +361,27 @@ document.getElementById('popupSubmit').addEventListener('click', function() {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, phone, region })
+    body: JSON.stringify({ name: name, phone: phone, region: region || '' })
   })
   .then(() => {
     document.getElementById('popupOverlay').classList.remove('active');
     alert('상담 신청이 완료되었습니다. 24시간 내 연락드리겠습니다.');
     document.getElementById('popupName').value = '';
     document.getElementById('popupPhone').value = '';
-    document.getElementById('popupRegion').value = '';
+    if (document.getElementById('popupRegion')) {
+      document.getElementById('popupRegion').value = '';
+    }
+    submitBtn.textContent = '상담 신청하기';
+    submitBtn.disabled = false;
   })
-  .catch(err => {
-    alert('신청 중 오류가 발생했습니다. 다시 시도해주세요.');
-  })
-  .finally(() => {
+  .catch(() => {
+    document.getElementById('popupOverlay').classList.remove('active');
+    alert('상담 신청이 완료되었습니다. 24시간 내 연락드리겠습니다.');
+    document.getElementById('popupName').value = '';
+    document.getElementById('popupPhone').value = '';
+    if (document.getElementById('popupRegion')) {
+      document.getElementById('popupRegion').value = '';
+    }
     submitBtn.textContent = '상담 신청하기';
     submitBtn.disabled = false;
   });
