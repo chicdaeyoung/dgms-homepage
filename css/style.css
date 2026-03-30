@@ -2476,3 +2476,79 @@
   transform: scale(1.04);
   box-shadow: 0 16px 48px rgba(200,24,26,0.2);
 }
+
+/* ── 수익 강조 배너 ── */
+.revenue-highlight {
+  background: var(--black);
+  padding: 40px 60px;
+  border-top: 3px solid var(--red);
+  border-bottom: 3px solid var(--red);
+}
+.revenue-highlight-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.rh-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 40px;
+}
+.rh-label {
+  display: block;
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+.rh-num {
+  display: block;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.rh-num em {
+  font-size: 18px;
+  color: rgba(255,255,255,0.5);
+  font-style: normal;
+}
+.rh-sub {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+}
+.rh-divider {
+  width: 1px;
+  height: 60px;
+  background: rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .revenue-highlight { padding: 30px 20px; }
+  .revenue-highlight-inner { flex-direction: column; gap: 24px; }
+  .rh-divider { width: 60px; height: 1px; }
+  .rh-num { font-size: 32px; }
+}
+
+/* ── 폰트 크기 전체 조정 ── */
+body { font-size: 17px; }
+.section-sub { font-size: 18px; }
+.brand-story-desc { font-size: 16px; }
+.auto-table tbody td { font-size: 17px; }
+.faq-q { font-size: 18px; }
+.faq-a { font-size: 17px; }
+.form-label { font-size: 16px; }
+.form-input { font-size: 16px; }
+.footer-info { font-size: 15px; }
+.hero-desc { font-size: 19px; }
+.menu-desc { font-size: 15px; }
+.cost-item { font-size: 16px; }
+.revenue-sub { font-size: 16px; }
+.step-desc { font-size: 16px; }
+.trust-desc { font-size: 15px; }
