@@ -1864,6 +1864,13 @@
     padding: 3px 10px;
     border-radius: 20px;
   }
+  .sales-card-store-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
   .sales-card-location {
     font-size: 14px;
     color: var(--gray);
