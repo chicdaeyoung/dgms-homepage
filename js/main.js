@@ -364,26 +364,10 @@ document.getElementById('popupSubmit').addEventListener('click', function() {
     body: JSON.stringify({ name: name, phone: phone, region: region || '' })
   })
   .then(() => {
-    document.getElementById('popupOverlay').classList.remove('active');
-    alert('상담 신청이 완료되었습니다. 24시간 내 연락드리겠습니다.');
-    document.getElementById('popupName').value = '';
-    document.getElementById('popupPhone').value = '';
-    if (document.getElementById('popupRegion')) {
-      document.getElementById('popupRegion').value = '';
-    }
-    submitBtn.textContent = '상담 신청하기';
-    submitBtn.disabled = false;
+    window.location.href = '/thankyou.html';
   })
   .catch(() => {
-    document.getElementById('popupOverlay').classList.remove('active');
-    alert('상담 신청이 완료되었습니다. 24시간 내 연락드리겠습니다.');
-    document.getElementById('popupName').value = '';
-    document.getElementById('popupPhone').value = '';
-    if (document.getElementById('popupRegion')) {
-      document.getElementById('popupRegion').value = '';
-    }
-    submitBtn.textContent = '상담 신청하기';
-    submitBtn.disabled = false;
+    window.location.href = '/thankyou.html';
   });
 });
 
