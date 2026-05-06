@@ -630,3 +630,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
   salesObserver.observe(salesCards[0].closest('section') || salesCards[0].parentElement);
 });
+
+// 이미지 팝업
+(function() {
+  var overlay = document.getElementById('imgPopupOverlay');
+  if (!overlay) return;
+
+  // 오늘 그만보기 쿠키 확인
+  var today = new Date().toDateString();
+  var hiddenDate = localStorage.getItem('popupHiddenDate');
+  if (hiddenDate === today) return;
+
+  // 팝업 표시
+  overlay.classList.add('active');
+
+  // 닫기
+  document.getElementById('imgPopupClose').addEventListener('click', function() {
+    overlay.classList.remove('active');
+  });
+
+  // 오늘 그만보기
+  document.getElementById('imgPopupToday').addEventListener('click', function() {
+    localStorage.setItem('popupHiddenDate', today);
+    overlay.classList.remove('active');
+  });
+
+  // 배경 클릭 시 닫기
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+    }
+  });
+})();
