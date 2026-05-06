@@ -633,9 +633,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // 이미지 팝업
 (function() {
-  console.log('팝업 스크립트 실행');
   var overlay = document.getElementById('imgPopupOverlay');
-  console.log('overlay:', overlay);
   if (!overlay) return;
 
   // 오늘 그만보기 쿠키 확인
